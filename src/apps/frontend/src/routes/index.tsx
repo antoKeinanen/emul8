@@ -1,9 +1,12 @@
+import { createFileRoute } from "@tanstack/react-router";
 import { trpc } from "../lib/trpc";
 
-function IndexPage() {
+function Index() {
   const { data, isLoading } = trpc.getHello.useQuery({ name: "World" });
 
   return <p>{isLoading ? "Loading..." : data}</p>;
 }
 
-export default IndexPage;
+export const Route = createFileRoute("/")({
+  component: Index,
+})

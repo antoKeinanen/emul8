@@ -1,10 +1,10 @@
+import { createRootRoute, Outlet } from "@tanstack/react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState } from "react";
-import { trpc } from "./lib/trpc";
 import { httpBatchLink } from "@trpc/client";
-import IndexPage from "./pages/IndexPage";
+import { trpc } from "../lib/trpc";
 
-function App() {
+function RootRoute() {
   const [queryClient] = useState(() => new QueryClient());
   const [trpcClient] = useState(() =>
     trpc.createClient({
@@ -19,10 +19,12 @@ function App() {
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
-        <IndexPage />
+        <Outlet />
       </QueryClientProvider>
     </trpc.Provider>
-  );
+  )
 }
 
-export default App;
+export const Route = createRootRoute({
+  component: RootRoute
+})
