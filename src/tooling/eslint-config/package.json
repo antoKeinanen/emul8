@@ -1,0 +1,28 @@
+{
+  "name": "@emul8/eslint-config",
+  "version": "0.0.0",
+  "private": "true",
+  "type": "module",
+  "scripts": {
+    "format": "prettier --check . --ignore-path ../../../.gitignore",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@eslint/compat": "^1.2.9",
+    "@next/eslint-plugin-next": "^15.3.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^6.0.0-rc.1",
+    "eslint-plugin-turbo": "^2.5.4",
+    "typescript-eslint": "^8.33.1"
+  },
+  "devDependencies": {
+    "@emul8/prettier-config": "workspace:*",
+    "@emul8/typescript-config": "workspace:*",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:"
+  },
+  "prettier": "@emul8/prettier-config"
+}

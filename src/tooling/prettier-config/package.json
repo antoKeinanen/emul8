@@ -1,0 +1,26 @@
+{
+  "name": "@emul8/prettier-config",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "format": "prettier --check . --ignore-path ../../../.gitignore",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "prettier": "catalog:",
+    "@ianvs/prettier-plugin-sort-imports": "4.4.2",
+    "prettier-plugin-tailwindcss": "0.6.13"
+  },
+  "devDependencies": {
+    "@emul8/typescript-config": "workspace:*",
+    "typescript": "catalog:",
+    "@types/node": "catalog:"
+  },
+  "exports": {
+    ".": {
+      "default": "./index.js"
+    }
+  },
+  "prettier": "@emul8/prettier-config"
+}
