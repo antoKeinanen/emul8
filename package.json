@@ -4,7 +4,9 @@
   "type": "module",
   "license": "GPL-3.0-only",
   "scripts": {
+    "dev": "pnpm recursive run dev",
     "format": "pnpm recursive run format",
+    "lint": "pnpm recursive run lint",
     "typecheck": "pnpm recursive run typecheck"
   },
   "engines": {

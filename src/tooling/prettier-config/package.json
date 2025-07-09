@@ -9,8 +9,7 @@
   },
   "dependencies": {
     "prettier": "catalog:",
-    "@ianvs/prettier-plugin-sort-imports": "4.4.2",
-    "prettier-plugin-tailwindcss": "0.6.13"
+    "@ianvs/prettier-plugin-sort-imports": "4.4.2"
   },
   "devDependencies": {
     "@emul8/typescript-config": "workspace:*",

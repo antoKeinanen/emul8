@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "private": "true",
   "type": "module",
+  "exports": {
+    "./base": "./base.js",
+    "./react": "./react.js"
+  },
   "scripts": {
     "format": "prettier --check . --ignore-path ../../../.gitignore",
     "typecheck": "tsc --noEmit"

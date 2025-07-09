@@ -1,0 +1,33 @@
+{
+  "name": "@emul8/auth-service",
+  "version": "0.0.0",
+  "private": "true",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "format": "prettier --check . --ignore-path ../../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "@trpc/server": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@emul8/prettier-config": "workspace:*",
+    "@emul8/eslint-config": "workspace:*",
+    "@emul8/typescript-config": "workspace:*",
+    "prettier": "catalog:",
+    "eslint": "catalog:",
+    "typescript": "catalog:",
+    "tsx": "catalog:"
+  },
+  "prettier": "@emul8/prettier-config"
+}
