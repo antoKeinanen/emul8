@@ -4,13 +4,16 @@
   "type": "module",
   "license": "GPL-3.0-only",
   "scripts": {
-    "dev": "pnpm recursive run dev",
-    "format": "pnpm recursive run format",
-    "lint": "pnpm recursive run lint",
-    "typecheck": "pnpm recursive run typecheck"
+    "dev": "turbo dev",
+    "format": "turbo format",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck"
   },
   "engines": {
     "node": ">=v24.3.0"
   },
-  "packageManager": "pnpm@10.11.0"
+  "packageManager": "pnpm@10.11.0",
+  "devDependencies": {
+    "turbo": "^2.5.4"
+  }
 }
