@@ -1,8 +1,7 @@
+import { createContext, router } from "@emul8/trpc-server";
 import { createHTTPServer } from "@trpc/server/adapters/standalone";
 
-import { createContext } from "./context";
 import { authRouter as authRouterRouter } from "./routers/auth.router";
-import { router } from "./trpc";
 
 const authRouter = router({
   auth: authRouterRouter,

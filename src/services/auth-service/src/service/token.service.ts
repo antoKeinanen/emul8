@@ -1,13 +1,11 @@
+import type { TokenPayload } from "@emul8/auth-verify";
 import type { Result } from "@emul8/types";
+import { verifyAccess } from "@emul8/auth-verify";
+import { tryCatch } from "@emul8/util";
 import jwt from "jsonwebtoken";
 
 import { env } from "../env";
-import { tryCatch } from "../lib/tryCatch";
 import { authRepository } from "../repository/auth.repository";
-
-export interface TokenPayload {
-  user_id: string;
-}
 
 function createAccess(payload: TokenPayload) {
   return jwt.sign(payload, env.JWT_ACCESS_TOKEN_SECRET, {
@@ -24,12 +22,6 @@ function createRefresh(payload: TokenPayload) {
   const { exp } = jwt.decode(token) as { exp: number };
 
   return { token, expiresAt: new Date(exp * 1000) };
-}
-
-function verifyAccess(token: string): TokenPayload {
-  return jwt.verify(token, env.JWT_ACCESS_TOKEN_SECRET, {
-    algorithms: ["HS256"],
-  }) as TokenPayload;
 }
 
 async function verifyRefresh(

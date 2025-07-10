@@ -1,14 +1,13 @@
 import type { CreateHTTPContextOptions } from "@trpc/server/adapters/standalone";
-
-import { tryCatch } from "./lib/tryCatch";
-import { tokenService } from "./service/token.service";
+import { verifyAccess } from "@emul8/auth-verify";
+import { tryCatch } from "@emul8/util";
 
 export function createContext({ req, res }: CreateHTTPContextOptions) {
   let user_id: string | null = null;
 
   const accessToken = req.headers.authorization?.split(" ")[1];
   if (accessToken) {
-    const [payload, _] = tryCatch(() => tokenService.verifyAccess(accessToken));
+    const [payload, _] = tryCatch(() => verifyAccess(accessToken));
     if (payload) {
       user_id = payload.user_id;
     }

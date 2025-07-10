@@ -1,0 +1,30 @@
+{
+  "name": "@emul8/trpc-server",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --check . --ignore-path ../../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "zod": "catalog:",
+    "@trpc/server": "catalog:",
+    "@emul8/util": "workspace:*",
+    "@emul8/auth-verify": "workspace:*"
+  },
+  "devDependencies": {
+    "@emul8/prettier-config": "workspace:*",
+    "@emul8/eslint-config": "workspace:*",
+    "@emul8/typescript-config": "workspace:*",
+    "prettier": "catalog:",
+    "eslint": "catalog:",
+    "typescript": "catalog:"
+  },
+  "prettier": "@emul8/prettier-config"
+}

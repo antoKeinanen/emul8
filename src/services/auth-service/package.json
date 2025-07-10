@@ -19,6 +19,9 @@
   "dependencies": {
     "@t3-oss/env-core": "catalog:",
     "@trpc/server": "catalog:",
+    "@emul8/trpc-server": "workspace:*",
+    "@emul8/auth-verify": "workspace:*",
+    "@emul8/util": "workspace:*",
     "argon2": "0.43.0",
     "cookie": "^1.0.2",
     "dotenv": "^17.2.0",

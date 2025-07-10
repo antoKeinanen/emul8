@@ -1,0 +1,5 @@
+{
+  "extends": "@emul8/typescript-config/internal-package.json",
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

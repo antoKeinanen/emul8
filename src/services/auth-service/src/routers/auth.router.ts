@@ -1,4 +1,9 @@
 import type { IncomingMessage, ServerResponse } from "http";
+import {
+  protectedProcedure,
+  publicProcedure,
+  router,
+} from "@emul8/trpc-server";
 import { TRPCError } from "@trpc/server";
 import argon2 from "argon2";
 import cookie from "cookie";
@@ -7,7 +12,6 @@ import { z } from "zod/v4";
 import { env } from "../env";
 import { authRepository } from "../repository/auth.repository";
 import { tokenService } from "../service/token.service";
-import { protectedProcedure, publicProcedure, router } from "../trpc";
 
 function setRefreshTokenCookie(
   res: ServerResponse<IncomingMessage>,

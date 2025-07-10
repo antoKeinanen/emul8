@@ -121,6 +121,71 @@ importers:
         specifier: ^7.0.3
         version: 7.0.3(@types/node@24.0.12)(tsx@4.20.3)
 
+  src/packages/auth-verify:
+    dependencies:
+      '@t3-oss/env-core':
+        specifier: 'catalog:'
+        version: 0.13.8(typescript@5.8.3)(zod@3.25.76)
+      jsonwebtoken:
+        specifier: 9.0.2
+        version: 9.0.2
+      zod:
+        specifier: 'catalog:'
+        version: 3.25.76
+    devDependencies:
+      '@emul8/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint-config
+      '@emul8/prettier-config':
+        specifier: workspace:*
+        version: link:../../tooling/prettier-config
+      '@emul8/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript-config
+      eslint:
+        specifier: 'catalog:'
+        version: 9.30.1
+      prettier:
+        specifier: 'catalog:'
+        version: 3.6.2
+      typescript:
+        specifier: 'catalog:'
+        version: 5.8.3
+
+  src/packages/trpc-server:
+    dependencies:
+      '@emul8/auth-verify':
+        specifier: workspace:*
+        version: link:../auth-verify
+      '@emul8/util':
+        specifier: workspace:*
+        version: link:../util
+      '@trpc/server':
+        specifier: 'catalog:'
+        version: 11.4.3(typescript@5.8.3)
+      zod:
+        specifier: 'catalog:'
+        version: 3.25.76
+    devDependencies:
+      '@emul8/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint-config
+      '@emul8/prettier-config':
+        specifier: workspace:*
+        version: link:../../tooling/prettier-config
+      '@emul8/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript-config
+      eslint:
+        specifier: 'catalog:'
+        version: 9.30.1
+      prettier:
+        specifier: 'catalog:'
+        version: 3.6.2
+      typescript:
+        specifier: 'catalog:'
+        version: 5.8.3
+
   src/packages/types:
     dependencies:
       zod:
@@ -146,8 +211,42 @@ importers:
         specifier: 'catalog:'
         version: 5.8.3
 
+  src/packages/util:
+    dependencies:
+      '@emul8/types':
+        specifier: workspace:*
+        version: link:../types
+    devDependencies:
+      '@emul8/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint-config
+      '@emul8/prettier-config':
+        specifier: workspace:*
+        version: link:../../tooling/prettier-config
+      '@emul8/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript-config
+      eslint:
+        specifier: 'catalog:'
+        version: 9.30.1
+      prettier:
+        specifier: 'catalog:'
+        version: 3.6.2
+      typescript:
+        specifier: 'catalog:'
+        version: 5.8.3
+
   src/services/auth-service:
     dependencies:
+      '@emul8/auth-verify':
+        specifier: workspace:*
+        version: link:../../packages/auth-verify
+      '@emul8/trpc-server':
+        specifier: workspace:*
+        version: link:../../packages/trpc-server
+      '@emul8/util':
+        specifier: workspace:*
+        version: link:../../packages/util
       '@t3-oss/env-core':
         specifier: 'catalog:'
         version: 0.13.8(typescript@5.8.3)(zod@3.25.76)

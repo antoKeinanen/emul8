@@ -30,3 +30,4 @@ const loggerMiddleware = t.middleware(async ({ path, type, next }) => {
 export const router = t.router;
 export const publicProcedure = t.procedure.use(loggerMiddleware);
 export const protectedProcedure = publicProcedure.use(authedMiddleware);
+export { createContext } from "./context";
