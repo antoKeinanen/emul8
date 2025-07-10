@@ -17,17 +17,27 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
+    "@t3-oss/env-core": "catalog:",
     "@trpc/server": "catalog:",
+    "argon2": "0.43.0",
+    "cookie": "^1.0.2",
+    "dotenv": "^17.2.0",
+    "jsonwebtoken": "9.0.2",
+    "pg": "8.16.3",
+    "superjson": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@emul8/prettier-config": "workspace:*",
     "@emul8/eslint-config": "workspace:*",
+    "@emul8/prettier-config": "workspace:*",
+    "@emul8/types": "workspace:*",
     "@emul8/typescript-config": "workspace:*",
-    "prettier": "catalog:",
+    "@types/jsonwebtoken": "9.0.10",
+    "@types/pg": "8.15.4",
     "eslint": "catalog:",
-    "typescript": "catalog:",
-    "tsx": "catalog:"
+    "prettier": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:"
   },
   "prettier": "@emul8/prettier-config"
 }

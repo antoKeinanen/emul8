@@ -1,16 +1,16 @@
 import { createHTTPServer } from "@trpc/server/adapters/standalone";
-import { z } from "zod/v4";
 
-import { publicProcedure, router } from "./trpc";
+import { createContext } from "./context";
+import { authRouter as authRouterRouter } from "./routers/auth.router";
+import { router } from "./trpc";
 
 const authRouter = router({
-  getHello: publicProcedure.input(z.object({ name: z.string() })).query(() => {
-    return "Hello, world";
-  }),
+  auth: authRouterRouter,
 });
 
 const server = createHTTPServer({
   router: authRouter,
+  createContext,
 });
 
 server.listen(3000);

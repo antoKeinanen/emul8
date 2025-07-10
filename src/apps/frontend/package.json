@@ -12,27 +12,30 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "@emul8/auth-service": "workspace:*",
+    "@emul8/eslint-config": "workspace:*",
+    "@emul8/prettier-config": "workspace:*",
+    "@emul8/typescript-config": "workspace:*",
     "@tanstack/react-query": "5.81.5",
     "@tanstack/react-router": "1.125.6",
     "@tanstack/react-router-devtools": "1.125.6",
     "@trpc/client": "catalog:",
     "@trpc/react-query": "catalog:",
-    "@emul8/typescript-config": "workspace:*",
-    "@emul8/prettier-config": "workspace:*",
-    "@emul8/eslint-config": "workspace:*",
-    "@emul8/auth-service": "workspace:*"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "superjson": "catalog:",
+    "zod": "catalog:",
+    "zustand": "^5.0.6"
   },
   "devDependencies": {
-    "eslint": "catalog:",
-    "prettier": "catalog:",
-    "typescript": "catalog:",
+    "@tanstack/router-plugin": "1.125.6",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react-swc": "^3.10.2",
+    "eslint": "catalog:",
     "globals": "^16.3.0",
-    "vite": "^7.0.3",
-    "@tanstack/router-plugin": "1.125.6"
+    "prettier": "catalog:",
+    "typescript": "catalog:",
+    "vite": "^7.0.3"
   }
 }

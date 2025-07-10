@@ -4,7 +4,6 @@ import { RouterProvider, createRouter } from '@tanstack/react-router'
 
 import { routeTree } from './routeTree.gen'
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 const router = createRouter({ routeTree })
 
 declare module '@tanstack/react-router' {
