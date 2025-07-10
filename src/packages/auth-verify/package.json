@@ -15,7 +15,8 @@
   "dependencies": {
     "zod": "catalog:",
     "@t3-oss/env-core": "catalog:",
-    "jsonwebtoken": "9.0.2"
+    "jsonwebtoken": "9.0.2",
+    "dotenv": "^17.2.0"
   },
   "devDependencies": {
     "@emul8/prettier-config": "workspace:*",
