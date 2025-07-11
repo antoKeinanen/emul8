@@ -5,7 +5,7 @@ import {
   router,
 } from "@emul8/trpc-server";
 import { TRPCError } from "@trpc/server";
-import argon2 from "argon2";
+import argon2 from "@node-rs/argon2";
 import cookie from "cookie";
 import { z } from "zod/v4";
 

@@ -7,7 +7,8 @@
     "dev": "turbo dev",
     "format": "turbo format",
     "lint": "turbo lint",
-    "typecheck": "turbo typecheck"
+    "typecheck": "turbo typecheck",
+    "build": "turbo build"
   },
   "engines": {
     "node": ">=v24.3.0"

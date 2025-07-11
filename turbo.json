@@ -5,6 +5,16 @@
     "format": {},
     "lint": {},
     "typecheck": {},
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        "build/**"
+      ],
+      "cache": false
+    },
     "dev": {
       "persistent": true,
       "cache": false

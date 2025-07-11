@@ -10,19 +10,19 @@
     }
   },
   "scripts": {
-    "build": "tsc",
+    "build": "esbuild src/index.ts --bundle --platform=node --format=cjs --outfile=dist/index.js --loader:.node=file",
     "dev": "tsx watch src/index.ts",
     "format": "prettier --check . --ignore-path ../../../.gitignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
+    "@emul8/auth-verify": "workspace:*",
+    "@emul8/trpc-server": "workspace:*",
+    "@emul8/util": "workspace:*",
     "@t3-oss/env-core": "catalog:",
     "@trpc/server": "catalog:",
-    "@emul8/trpc-server": "workspace:*",
-    "@emul8/auth-verify": "workspace:*",
-    "@emul8/util": "workspace:*",
-    "argon2": "0.43.0",
+    "@node-rs/argon2": "2.0.2",
     "cookie": "^1.0.2",
     "dotenv": "^17.2.0",
     "jsonwebtoken": "9.0.2",
@@ -37,6 +37,8 @@
     "@emul8/typescript-config": "workspace:*",
     "@types/jsonwebtoken": "9.0.10",
     "@types/pg": "8.15.4",
+    "@vercel/ncc": "catalog:",
+    "esbuild": "^0.25.6",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "tsx": "catalog:",
