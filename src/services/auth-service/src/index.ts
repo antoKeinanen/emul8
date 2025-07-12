@@ -9,6 +9,7 @@ const authRouter = router({
 
 const server = createHTTPServer({
   router: authRouter,
+  basePath: "/api/auth/",
   createContext,
 });
 

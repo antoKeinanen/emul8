@@ -1,0 +1,5 @@
+auth_service_env = {
+  DATABASE_URL             = ""
+  JWT_ACCESS_TOKEN_SECRET  = ""
+  JWT_REFRESH_TOKEN_SECRET = ""
+}
