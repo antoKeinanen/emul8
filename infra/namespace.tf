@@ -3,3 +3,9 @@ resource "kubernetes_namespace" "emul8" {
     name = "emul8"
   }
 }
+
+resource "kubernetes_namespace" "monitoring" {
+  metadata {
+    name = "monitoring"
+  }
+}
