@@ -20,14 +20,12 @@ COPY --from=pruner /app/out/json/ .
 RUN pnpm install --frozen-lockfile
 
 COPY --from=pruner /app/out/full/ .
-RUN turbo build
-
 
 FROM base AS runner
 
 WORKDIR /app
 
-COPY --from=builder /app/src/services/auth-service/dist/* .
+COPY --from=builder /app .
 
 EXPOSE 3000
-ENTRYPOINT ["node", "index.js"] 
+ENTRYPOINT ["pnpm", "--filter", "@emul8/auth-service", "run", "start"] 

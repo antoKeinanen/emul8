@@ -3,6 +3,7 @@ import { refreshTokenSchema, userSchema } from "@emul8/types";
 import { z } from "zod/v4";
 
 import { db } from "../lib/db";
+import logger from "../lib/logger";
 
 async function createUser(
   username: string,
@@ -25,7 +26,7 @@ async function createUser(
   const schema = z.array(userSchema);
   const validatedUser = schema.safeParse(user.rows);
   if (!validatedUser.success || !validatedUser.data[0]) {
-    console.error("Failed to create user:", validatedUser.error, user.rows);
+    logger.error("Failed to create user:", validatedUser.error);
     return [null, "Unexpected error has occurred, try again later"];
   }
 
@@ -50,7 +51,7 @@ async function getRefreshToken(
   const validatedToken = schema.safeParse(token.rows);
 
   if (!validatedToken.success) {
-    console.error("Failed to get refresh token:", validatedToken.error);
+    logger.error("Failed to get refresh token:", validatedToken.error);
     return [null, "Unexpected error has occurred, try again later"];
   }
 
@@ -109,6 +110,7 @@ async function getUserByUsername(
   const parsedUser = schema.safeParse(user.rows);
 
   if (!parsedUser.success) {
+    logger.error("Failed to get user by username:", parsedUser.error);
     return [null, "Unexpected error has occurred, try again later"];
   }
 

@@ -3,6 +3,7 @@ import type { QueryResult } from "pg";
 import { DatabaseError, Pool } from "pg";
 
 import { env } from "../env";
+import logger from "./logger";
 
 const pool = new Pool({
   connectionString: env.DATABASE_URL,
@@ -24,8 +25,8 @@ async function execute(
   try {
     const result = await pool.query(query, params);
     return [result, null];
-  } catch (err: unknown) {
-    console.error("Failed to execute database query:", err);
+  } catch (err) {
+    logger.error("Failed to execute database query:", err);
     if (err instanceof DatabaseError) {
       switch (err.code) {
         case "23505":

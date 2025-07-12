@@ -1,6 +1,7 @@
 import { createContext, router } from "@emul8/trpc-server";
 import { createHTTPServer } from "@trpc/server/adapters/standalone";
 
+import logger from "./lib/logger";
 import { authRouter as authRouterRouter } from "./routers/auth.router";
 
 const authRouter = router({
@@ -14,6 +15,6 @@ const server = createHTTPServer({
 });
 
 server.listen(3000);
-console.log("Listening on port 3000");
+logger.info("Listening on port: 3000");
 
 export type AuthRouter = typeof authRouter;

@@ -4,12 +4,13 @@ import {
   publicProcedure,
   router,
 } from "@emul8/trpc-server";
+import argon2 from "argon2";
 import { TRPCError } from "@trpc/server";
-import argon2 from "@node-rs/argon2";
 import cookie from "cookie";
 import { z } from "zod/v4";
 
 import { env } from "../env";
+import logger from "../lib/logger";
 import { authRepository } from "../repository/auth.repository";
 import { tokenService } from "../service/token.service";
 
@@ -41,6 +42,7 @@ export const authRouter = router({
         passwordHash,
       );
       if (userError != null) {
+        logger.error("SignUp failed:", userError);
         throw new TRPCError({ code: "BAD_REQUEST", message: userError });
       }
 
@@ -126,7 +128,7 @@ export const authRouter = router({
 
     const oldRefresh: string | undefined = cookies.jdt;
     if (!oldRefresh) {
-      console.error("Failed to refresh tokens: no refresh token provided");
+      logger.error("Failed to refresh tokens: no refresh token provided");
       throw new TRPCError({ code: "UNAUTHORIZED" });
     }
 
@@ -134,8 +136,7 @@ export const authRouter = router({
       await tokenService.verifyRefresh(oldRefresh);
 
     if (payloadError != null) {
-      console.log(oldRefresh);
-      console.error("Failed to refresh tokens: invalid refresh token");
+      logger.error("Failed to refresh tokens: invalid refresh token");
       throw new TRPCError({ code: "FORBIDDEN" });
     }
 
