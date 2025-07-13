@@ -2,8 +2,8 @@ import type { Result } from "@emul8/types";
 import type { QueryResult } from "pg";
 import { DatabaseError, Pool } from "pg";
 
-import { env } from "../env";
-import logger from "./logger";
+import { env } from "./env";
+import logger from "@emul8/logger";
 
 const pool = new Pool({
   connectionString: env.DATABASE_URL,

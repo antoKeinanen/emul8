@@ -21,6 +21,8 @@
     "@emul8/auth-verify": "workspace:*",
     "@emul8/trpc-server": "workspace:*",
     "@emul8/util": "workspace:*",
+    "@emul8/logger": "workspace:*",
+    "@emul8/db": "workspace:*",
     "argon2": "0.43.0",
     "@t3-oss/env-core": "catalog:",
     "@trpc/server": "catalog:",

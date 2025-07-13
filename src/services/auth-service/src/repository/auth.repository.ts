@@ -1,9 +1,8 @@
 import type { RefreshToken, Result, User } from "@emul8/types";
+import { db } from "@emul8/db";
+import logger from "@emul8/logger";
 import { refreshTokenSchema, userSchema } from "@emul8/types";
 import { z } from "zod/v4";
-
-import { db } from "../lib/db";
-import logger from "../lib/logger";
 
 async function createUser(
   username: string,
