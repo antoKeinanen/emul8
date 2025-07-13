@@ -8,7 +8,48 @@ services:
       - "8080:8080"
     volumes:
       - cockroach-data-emul8-dev:/cockroach/cockroach-data
-    restart: unless-stopped
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: password
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - rabbitmq-data-emul8-dev:/var/lib/rabbitmq
+
+  minio:
+    image: minio/minio:RELEASE.2025-06-13T11-33-47Z
+    container_name: minio
+    environment:
+      - MINIO_ROOT_USER=minioadmin
+      - MINIO_ROOT_PASSWORD=minioadmin
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio-data-emul8-dev:/data
+    command: ["server", "--console-address", ":9001", "/data"]
+
+  createbuckets:
+    image: minio/minio:RELEASE.2025-06-13T11-33-47Z
+    container_name: createbuckets
+    depends_on:
+      - minio
+    restart: on-failure
+    entrypoint: >
+      /bin/sh -c "
+      sleep 5;
+      /usr/bin/mc alias set dockerminio http://minio:9000 minioadmin minioadmin;
+      /usr/bin/mc mb dockerminio/emul8/unprocessed-images;
+      /usr/bin/mc mb dockerminio/emul8/processed-images;
+      exit 0;
+      "
 
 volumes:
   cockroach-data-emul8-dev:
+  minio-data-emul8-dev:
+  rabbitmq-data-emul8-dev:
